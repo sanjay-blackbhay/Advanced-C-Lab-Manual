@@ -17,15 +17,54 @@ Algorithm:
 Program:
 
 //type your code here
-
-
-
+```
+#include<stdio.h> 
+#include<math.h>
+int main()
+{
+     int n;
+     scanf("%d",&n);
+     if(n>=1 && n<=pow(4,3))
+     {
+     switch(n)
+     {
+     case 5:
+     printf("forty one");
+     break;
+     case 6:
+     printf("forty two");
+     break;
+     case 13:
+     printf("forty three");
+     break;
+     case 14:
+     printf("forty four");
+     break;
+     case 15:
+     printf("forty five");
+     break;
+     case 16:
+     printf("forty six");
+     break;
+     case 5:
+     printf("forty seven");
+     break;
+     case 6:
+     printf("forty eight");
+     break;
+     case 13:
+     printf("forty nine");
+     break;
+     default:
+     printf("Greater than 13");
+}
+```
 
 Output:
 
 
-//paste your output here
 
+<img width="456" height="175" alt="image" src="https://github.com/user-attachments/assets/e2275e52-716b-406b-aaca-e7797a8f27f4" />
 
 
 
@@ -48,14 +87,36 @@ Algorithm:
 Program:
 
 //type your code here
-
+```
+#include<string.h>
+int main()
+{
+     char a[50];
+     scanf("%s",a);
+     int l=strlen(a);
+     char h='0';
+     for(int i=0;i<4;i++)
+     {
+          int c=0;
+          for(int j=0;j<l;j++)
+          {
+               if(a[j]==h)
+               {
+                      c+=1;
+         }
+     }
+    printf("%d ",c); h++;
+    }
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="628" height="132" alt="image" src="https://github.com/user-attachments/assets/24b55f73-279a-4963-8dcb-5465b89d245e" />
+
 
 
 
@@ -85,14 +146,55 @@ Free the memory allocated for each string in s Free the memory allocated for s
 Program:
 
 //type your code here
+```
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX 10
+#define LEN 100
 
+void swap(char arr[MAX][LEN],int i,int j)
+{
+    char temp[LEN];
+    strcpy(temp,arr[i]);
+    strcpy(arr[i],arr[j]);
+    strcpy(arr[j],temp);
+}
+int next_permutation(char arr[MAX][LEN],int n){
+    int i=n-2;
+    while(i>=0 && strcmp(arr[i],arr[i+1])>=0)i--;
+    if(i<0) return 0;
+    int j=n-1;
+    while(strcmp(arr[i],arr[j])>=0)j--;
+    swap(arr,i,j);
+    int left =i+1,right=n-1;
+    while(left<right) swap(arr,left++,right--);
+    return 1;
+}
+int cmp(const void*a,const void*b){
+    return strcmp((char*)a,(char*)b);
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    char arr[MAX][LEN];
+    for(int i=0;i<n;i++) scanf("%s",arr[i]);
+    qsort(arr,n,LEN,cmp);
+    do{
+        for(int i=0;i<n;i++) printf("%s ",arr[i]);
+        printf("\n");
+    }while(next_permutation(arr,n));
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="337" height="299" alt="image" src="https://github.com/user-attachments/assets/b051ccfe-3185-4a20-800f-f125a82c0f05" />
+
 
 
 
@@ -118,14 +220,32 @@ Algorithm:
 Program:
 
 //type your code here
-
+```
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int size=2*n-1;
+    for(int i=0;i<size;i++)
+    {
+        for(int j=0;j<size;j++)
+        {
+            int value=n-(i<j?(i<size-j-1?i:size-j-1):(j<size-i-1?j:size-i-1));
+            printf("%d ",value);
+        }
+        printf("\n");
+    }
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="491" height="508" alt="image" src="https://github.com/user-attachments/assets/e1b4b796-2afd-4290-afc5-8f73c758e9f9" />
+
 
 
 
@@ -157,14 +277,29 @@ o	Call the square() function and display the result.
 Program:
 
 //type your code here
-
+```
+#include <stdio.h>
+void square();
+int main(){
+    
+    square();
+    return 0;
+}
+void square(){
+    int a;
+    scanf("%d",&a);
+    float ans = a*a;
+    printf("The square of %d is : %.2f",a,ans);
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="800" height="200" alt="image" src="https://github.com/user-attachments/assets/d329c86b-23d7-40db-85f8-b69524d61573" />
+
 
 
 
@@ -173,30 +308,3 @@ Output:
 
 Result:
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
